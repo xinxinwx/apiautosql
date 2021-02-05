@@ -1,0 +1,557 @@
+
+第1条用例报错:
+HTTPConnectionPool(host='120.78.128.25', port=8766): Max retries exceeded with url: /futureloan/member/login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000259CDFA3128>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000259CDFA3128>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='120.78.128.25', port=8766): Max retries exceeded with url: /futureloan/member/login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000259CDFA3128>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 89, in test_go_on_run
+    res = RunMethod().run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 14, in post_main
+    res = requests.post(url=url, data=data)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='120.78.128.25', port=8766): Max retries exceeded with url: /futureloan/member/login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000259CDFA3128>: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。'))
+
+第2条用例报错:
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+
+第4条用例报错:
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 70, in get_value_for_key
+    newdepend = newdepend + str([match.value for match in parse(item).find(response_data)][0])+","  # 返回是列表所以用[0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 70, in get_value_for_key
+    newdepend = newdepend + str([match.value for match in parse(item).find(response_data)][0])+","  # 返回是列表所以用[0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 70, in get_value_for_key
+    newdepend = newdepend + str([match.value for match in parse(item).find(response_data)][0])+","  # 返回是列表所以用[0]
+IndexError: list index out of range
+
+第6条用例报错:
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+'str' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 46, in get_value_for_key
+    response_data = self.run_dependent()
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 35, in run_dependent
+    res = self.method.run_main(method, url, data, header, params=data)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 28, in run_main
+    res = self.post_main(url, data, header)
+  File "D:\apiauto\apiauto\util\runmethod.py", line 12, in post_main
+    res = requests.post(url=url, data=data, headers=header)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 519, in request
+    prep = self.prepare_request(req)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\sessions.py", line 462, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 314, in prepare
+    self.prepare_headers(headers)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\requests\models.py", line 446, in prepare_headers
+    for header in headers.items():
+AttributeError: 'str' object has no attribute 'items'
+
+第7条用例报错:
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 73, in get_value_for_key
+    return [match.value for match in parse(depend_data).find(response_data)][0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 73, in get_value_for_key
+    return [match.value for match in parse(depend_data).find(response_data)][0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 73, in get_value_for_key
+    return [match.value for match in parse(depend_data).find(response_data)][0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 73, in get_value_for_key
+    return [match.value for match in parse(depend_data).find(response_data)][0]
+IndexError: list index out of range
+list index out of range
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 68, in test_go_on_run
+    depend_response_data = self.depend_data.get_value_for_key(i)
+  File "D:\apiauto\apiauto\data\dependent_data.py", line 73, in get_value_for_key
+    return [match.value for match in parse(depend_data).find(response_data)][0]
+IndexError: list index out of range
+
+第16条用例报错:
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+
+第19条用例报错:
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters
+String longer than 32767 characters
+Traceback (most recent call last):
+  File "D:\apiauto\apiauto\main\test_api.py", line 152, in test_go_on_run
+    GetData().write_result(i,json.dumps(res))
+  File "D:\apiauto\apiauto\data\get_data.py", line 83, in write_result
+    self.oper_excel.write_value(row, col, value)
+  File "D:\apiauto\apiauto\util\operation_excel.py", line 43, in write_value
+    write_data.save(self.file_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 674, in get_biff_data
+    shared_str_table   = self.__sst_rec()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\Workbook.py", line 636, in __sst_rec
+    return self.__sst.get_biff_record()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 77, in get_biff_record
+    self._add_to_sst(s)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\BIFFRecords.py", line 92, in _add_to_sst
+    u_str = upack2(s, self.encoding)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\xlwt\UnicodeUtils.py", line 55, in upack2
+    raise Exception('String longer than 32767 characters')
+Exception: String longer than 32767 characters

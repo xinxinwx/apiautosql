@@ -1,0 +1,18 @@
+{
+	"maipiao": {
+  		"ishigh": 0 ,
+  		"appkey": "d737aad9a0d9dc97"
+	},
+	"login": {
+		"mobile_phone":"18210783228","pwd":"12346789"
+	},
+	"moni": {
+		"start":"北京",
+		"end": "西安",
+		"password":"666"
+	},
+	"cook": {
+		"name":"周杰伦",
+		"age": "42"
+	}
+}
